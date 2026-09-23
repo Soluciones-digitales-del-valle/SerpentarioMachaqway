@@ -229,7 +229,7 @@ export function Courses() {
 export function Contact() {
   return (
     <section id={contact.id} className="scroll-mt-28 bg-paper" aria-labelledby="titulo-contacto">
-      <div className="mx-auto grid max-w-6xl gap-10 px-[clamp(1.25rem,4vw,3rem)] pb-20 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.8fr)] lg:pb-28">
+      <div className="mx-auto grid max-w-6xl gap-10 px-[clamp(1.25rem,4vw,3rem)] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.8fr)]">
         <div>
           <Reveal>
             <h2 id="titulo-contacto" className="font-display text-[clamp(3.4rem,7vw,6rem)] leading-[0.9] tracking-tight">
@@ -274,6 +274,16 @@ export function Contact() {
             </li>
           </ul>
         </Reveal>
+      </div>
+      <div className="mx-auto mt-12 max-w-6xl px-[clamp(1.25rem,4vw,3rem)] pb-20 lg:mt-16 lg:pb-28">
+        <iframe
+          title="Mapa de Serpentario Machaqway, Ruta 14, Villa de Las Rosas"
+          src={site.mapsEmbedHref}
+          className="h-[min(70vh,32rem)] w-full border-0 bg-sand"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
       </div>
     </section>
   );

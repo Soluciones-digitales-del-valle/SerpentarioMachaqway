@@ -36,6 +36,8 @@ export const site = {
   instagramLabel: "serpentario.machaqway",
   mapsHref:
     "https://www.google.com/maps/search/?api=1&query=Serpentario%20Machaqway%2C%20Ruta%2014%2C%20Villa%20de%20Las%20Rosas%2C%20C%C3%B3rdoba%2C%20Argentina",
+  mapsEmbedHref:
+    "https://www.google.com/maps/embed?origin=mfe&pb=!1m4!3m2!1m1!4s16795846897195926249!6i16!3m1!1ses!5m1!1ses",
   address: ["Ruta 14, a 800 metros de la plaza", "Villa de Las Rosas, Córdoba, Argentina"],
   /** Dejar vacío hasta confirmar. No publicar un horario inventado. */
   hours: "",
