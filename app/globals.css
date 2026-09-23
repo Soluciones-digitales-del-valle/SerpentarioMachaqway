@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-paper: #f4f1ea;
+  --color-sand: #e7e1d4;
+  --color-ink: #1c211e;
+  --color-night: #161a17;
+  --color-forest: #34483f;
+  --color-clay: #8c5640;
+  --color-clay-soft: #a46b52;
+  --color-stone: #777a70;
+  --color-muted: #5c6158;
+  --color-cream: #faf8f2;
+  --color-line: #d4cfc3;
+  --font-display: var(--font-cormorant), Palatino, "Palatino Linotype", Georgia, serif;
+  --font-text: var(--font-literata), Palatino, "Palatino Linotype", Georgia, serif;
+}
+
+html {
+  scroll-padding-top: 6rem;
+}
+
+body {
+  overflow-x: clip;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-text);
+}
+
+section {
+  overflow-x: clip;
+}
+
+.living-photo {
+  position: absolute;
+  inset: 0;
+  transform-origin: center center;
+}
+
+.living-photo--hero {
+  transform-origin: center center;
+}
+
+.ridge {
+  display: block;
+  width: 100%;
+  height: 3.5rem;
+  pointer-events: none;
+}
+
+.animals-track {
+  display: flex;
+  width: 100%;
+  transform: translateX(calc(var(--animals-index, 0) * -100%));
+}
+
+.animals-track > article {
+  flex: 0 0 100%;
+}
+
+.photo-focus {
+  --photo-zoom: var(--zoom-mobile, 1);
+  object-position: var(--focus-mobile);
+  transform-origin: var(--focus-mobile);
+  transform: scale(var(--photo-zoom));
+}
+
+@media (min-width: 1024px) {
+  .animals-track {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    transform: none;
+  }
+
+  .animals-track > article {
+    flex: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .photo-focus {
+    --photo-zoom: var(--zoom-desktop, 1);
+    object-position: var(--focus-desktop);
+    transform-origin: var(--focus-desktop);
+  }
+}
+
+summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-forest);
+  outline-offset: 3px;
+}
+
+header :focus-visible {
+  outline-color: var(--color-cream);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .arrive {
+    animation: text-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .arrive-2 {
+    animation-delay: 0.1s;
+  }
+
+  .arrive-3 {
+    animation-delay: 0.18s;
+  }
+
+  .arrive-4 {
+    animation-delay: 0.28s;
+  }
+
+  .arrive-5 {
+    animation-delay: 0.46s;
+  }
+
+  .reveal {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal-wait:not(.is-shown):not(:has(:is(h1, h2, h3, p, li, dt, address))) {
+    opacity: 0;
+    transform: translateY(0.7rem);
+  }
+
+  .reveal.is-shown {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-wait:not(.is-shown) :is(h1, h2, h3, p, li, dt, address) {
+    opacity: 0;
+  }
+
+  .reveal.is-shown :is(h1, h2, h3, p, li, dt, address) {
+    animation: text-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal.is-shown h1 + p,
+  .reveal.is-shown h2 + p,
+  .reveal.is-shown h3 + p,
+  .reveal.is-shown p:nth-of-type(2),
+  .reveal.is-shown li:nth-child(2),
+  .reveal.is-shown dt:nth-of-type(2) {
+    animation-delay: calc(var(--reveal-delay, 0ms) + 90ms);
+  }
+
+  .reveal.is-shown p:nth-of-type(3),
+  .reveal.is-shown li:nth-child(3) {
+    animation-delay: calc(var(--reveal-delay, 0ms) + 160ms);
+  }
+
+  .reveal.is-shown li:nth-child(4) {
+    animation-delay: calc(var(--reveal-delay, 0ms) + 220ms);
+  }
+
+  .animals-track article[data-entering="true"] :is(h3, p) {
+    animation: text-rise 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .reveal.is-shown .trail {
+    transform: scaleX(1);
+  }
+
+  .reveal-wait:not(.is-shown) .trail {
+    transform: scaleX(0);
+  }
+
+  .trail {
+    transform-origin: left center;
+    transition: transform 0.6s ease;
+  }
+
+  .living-photo--hero {
+    transform: translate3d(0, 0, 0) scale(1.04);
+  }
+
+  .animals-track {
+    transition: transform 0.45s ease;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .photo-frame:hover .photo-focus {
+    transform: scale(calc(var(--photo-zoom) * 1.012));
+    transition: transform 0.8s ease;
+  }
+}
+
+@keyframes text-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.15rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
