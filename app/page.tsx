@@ -6,6 +6,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Place",
     name: site.legalName,
+    url: site.url,
     description:
       "Proyecto familiar fundado en 2004 en Villa de Las Rosas, Córdoba, dedicado a la investigación, la educación y la protección de serpientes y otros animales de la fauna argentina.",
     telephone: "+54-3544-469822",

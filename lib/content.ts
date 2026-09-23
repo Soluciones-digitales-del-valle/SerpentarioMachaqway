@@ -20,6 +20,7 @@ export type Photo = {
 export const site = {
   name: "Machaqway",
   legalName: "Serpentario Machaqway",
+  url: "https://www.serpentariomachaqway.com.ar",
   title: "Serpentario Machaqway | Traslasierra",
   description:
     "Centro familiar de educación e investigación en Villa de Las Rosas, Traslasierra, desde 2004. Un lugar para conocer reptiles, anfibios y arácnidos.",

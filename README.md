@@ -27,4 +27,4 @@ El proyecto no necesita variables de entorno. Vercel detecta Next.js solo.
 2. Dejá el comando de build en `npm run build` y el directorio de salida por defecto.
 3. Deploy.
 
-`metadataBase` usa `VERCEL_PROJECT_PRODUCTION_URL` o `VERCEL_URL`, que Vercel define en el deploy.
+La dirección canónica es `https://www.serpentariomachaqway.com.ar`.
